@@ -188,15 +188,15 @@ const scrollToDemos = () => {
       </div>
       <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <!-- <img
-          class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full lg:hidden block"
+          class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src="https://media.discordapp.net/attachments/600450283423662082/1064956777503920218/C383FF19-41BB-40BD-A7BB-3E42E0C979B4_1_201_a_3.webp"
           alt=""
         /> -->
         <!-- <img
-        class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full object-bottom"
-        src="https://media.discordapp.net/attachments/600450283423662082/1064944199985790986/photo-1590602847861-f357a9332bbc_2.webp"
-        alt=""
-      /> -->
+          class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full object-bottom"
+          src="https://media.discordapp.net/attachments/600450283423662082/1064944199985790986/photo-1590602847861-f357a9332bbc_2.webp"
+          alt=""
+        /> -->
         <img
           class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full shadow-lg hidden lg:block"
           src="../assets/images/cut.webp"
@@ -212,8 +212,8 @@ const scrollToDemos = () => {
     <section class="max-w-7xl mx-auto px-6 py-7 lg:px-8" id="demos">
       <h1 class="text-5xl mb-5 text-center font-bold text-gray-900">Demo's</h1>
 
-      <div class="grid grid-cols-12 gap-4">
-        <div class="bg-white col-span-6 py-4 rounded-xl">
+      <div class="md:grid grid-cols-12 gap-4">
+        <div class="bg-white col-span-6 py-4 rounded-xl mb-4 md:mb-0">
           <AudioPlayer
             class="overflow-hidden"
             url="../../assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3"
