@@ -216,7 +216,7 @@ const scrollToDemos = () => {
         <div class="bg-white col-span-6 py-4 rounded-xl">
           <AudioPlayer
             class="overflow-hidden"
-            url="../assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3"
+            url="../../assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3"
             playerId="demo1"
           />
           <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600">Commercials 2022</h2>
@@ -224,7 +224,7 @@ const scrollToDemos = () => {
         <div class="bg-white col-span-6 py-4 rounded-xl">
           <AudioPlayer
             class="overflow-hidden"
-            url="../assets/demo/Voice-Demo-2021-Commercials-Narratief.mp3"
+            url="../../assets/demo/Voice-Demo-2021-Commercials-Narratief.mp3"
             playerId="demo2"
           />
           <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600">Commercials 2021</h2>
