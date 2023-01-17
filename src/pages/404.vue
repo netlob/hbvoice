@@ -8,34 +8,27 @@
           <span class="sr-only">Saaf</span>
           <img
             class="h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+            src="https://tailwindui.com/img/logos/workflow-mark.svg?color=orange&shade=500"
             alt=""
           />
         </router-link>
       </div>
       <div class="py-16">
         <div class="text-center">
-          <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wide">404 error</p>
+          <p class="text-sm font-semibold text-orange-500 uppercase tracking-wide">404 error</p>
           <h1 class="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
-            Page not found.
+            Pagina niet gevonden
           </h1>
           <p class="mt-2 text-base text-gray-500">
-            Sorry, we couldn't find the page you're looking for.
+            Helaas konden we de pagina die je probeerd te bezoeken niet vinden.
           </p>
           <div class="mt-6">
-            <router-link to="/" class="text-base font-medium text-indigo-600 hover:text-indigo-500"
-              >Go back home<span aria-hidden="true"> &rarr;</span>
+            <router-link to="/" class="text-base font-medium text-orange-500 hover:text-orange-600"
+              >Ga naar de homepagina<span aria-hidden="true"> &rarr;</span>
             </router-link>
           </div>
         </div>
       </div>
     </main>
-    <footer class="flex-shrink-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="flex justify-center space-x-4">
-        <a href="mailto:saaf@stats.fm" class="text-sm font-medium text-gray-500 hover:text-gray-600"
-          >Contact Support</a
-        >
-      </nav>
-    </footer>
   </div>
 </template>
