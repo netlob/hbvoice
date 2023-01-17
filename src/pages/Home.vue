@@ -339,7 +339,7 @@ const scrollToDemos = () => {
                 fragmenten en oordeel zelf.
               </p>
               <a
-                class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-orange-600 hover:bg-blue-gray-50 sm:inline-block sm:w-auto cursor-pointer"
+                class="block w-full px-6 py-2 text-center bg-white border border-transparent rounded-xl shadow-md text-base font-medium text-orange-600 hover:bg-blue-gray-50 sm:inline-block sm:w-auto cursor-pointer"
                 @click="scrollToDemos"
                 >Luister demo's</a
               >
