@@ -146,19 +146,36 @@ const scrollToDemos = () => {
             class="mt-10 lg:py-20 lg:mb-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
           >
             <div class="sm:text-center lg:text-left">
-              <h1
-                class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
-              >
-                <span class="block">Uw professionele</span>
-                {{ ' ' }}
-                <VueWriter
-                  :array="['voice-over', 'stemacteur']"
-                  :typeSpeed="100"
-                  :eraseSpeed="50"
-                  :delay="2000"
-                  class="block text-orange-500"
+              <!-- <img
+                class="h-auto -top-[6rem] relative w-full object-cover md:hidden block"
+                src="../assets/images/cut.webp"
+                alt=""
+              /> -->
+              <div class="flex flex-wrap-reverse flex-grow">
+                <img
+                  class="h-auto md:-top-[6rem] relative w-full object-cover lg:hidden block"
+                  src="../assets/images/cut.webp"
+                  alt=""
                 />
-              </h1>
+                <h1
+                  class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
+                >
+                  <span class="block">Uw professionele</span>
+                  {{ ' ' }}
+                  <VueWriter
+                    :array="['voice-over', 'stemacteur']"
+                    :typeSpeed="100"
+                    :eraseSpeed="50"
+                    :delay="2000"
+                    class="block text-orange-500"
+                  />
+                </h1>
+                <!-- <img
+                  class="h-auto -top-[6rem] relative w-full object-cover md:block lg:hidden sm:hidden"
+                  src="../assets/images/cut.webp"
+                  alt=""
+                /> -->
+              </div>
               <p
                 class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-gray-300"
               >
