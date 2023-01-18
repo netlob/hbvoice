@@ -5,6 +5,8 @@ import AudioPlayer from '../components/base/Player.vue';
 import { CheckIcon, MinusIcon } from '@heroicons/vue/solid';
 import VueWriter from 'vue-writer';
 import { defineComponent, onMounted, ref, h } from 'vue';
+import demo1 from '../../src/assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3';
+import demo2 from '../../src/assets/demo/Voice-Demo-2021-Commercials-Narratief.mp3';
 
 const tiers = [
   {
@@ -229,26 +231,23 @@ const scrollToDemos = () => {
     <section class="max-w-7xl mx-auto px-6 py-7 lg:px-8 select-none" id="demos">
       <h1 class="text-5xl mb-5 text-center font-bold text-gray-900 dark:text-white">Demo's</h1>
 
-      <div class="md:grid grid-cols-12 gap-4">
-        <div class="bg-white dark:bg-slate-800 col-span-6 py-4 rounded-xl mb-4 md:mb-0">
-          <AudioPlayer
-            class="overflow-hidden"
-            src="../../assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3"
-            playerId="demo1"
-          />
+      <div class="md:flex flex-shrink">
+        <div
+          class="bg-white dark:bg-slate-800 py-4 rounded-xl mb-4 md:mb-0 overflow-hidden relative"
+        >
+          <AudioPlayer class="overflow-hidden" :src="demo1" playerId="demo1" />
           <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600 dark:text-white">
             Commercials 2022
           </h2>
+          <div class="absolute z-10 right-0 w-4 bottom-0 top-0 bg-white dark:bg-slate-800"></div>
         </div>
-        <div class="bg-white dark:bg-slate-800 col-span-6 py-4 rounded-xl">
-          <AudioPlayer
-            class="overflow-hidden"
-            src="../../assets/demo/Voice-Demo-2021-Commercials-Narratief.mp3"
-            playerId="demo2"
-          />
+        <div class="w-4"></div>
+        <div class="bg-white dark:bg-slate-800 py-4 pr-4 rounded-xl overflow-hidden">
+          <AudioPlayer class="overflow-hidden" :src="demo2" playerId="demo2" />
           <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600 dark:text-white">
             Commercials 2021
           </h2>
+          <div class="absolute z-10 right-0 w-4 bottom-0 top-0 bg-white dark:bg-slate-800"></div>
         </div>
       </div>
     </section>
@@ -264,12 +263,11 @@ const scrollToDemos = () => {
       <div class="max-w-7xl mx-auto bg-orange-500 lg:bg-transparent lg:px-8">
         <div class="lg:grid lg:grid-cols-12">
           <div
-            class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-3 lg:py-16 lg:bg-transparent -top-10 lg:top-0"
+            class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-3 lg:py-16 lg:bg-transparent -top-10 lg:-top-7"
           >
             <div class="absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:hidden" aria-hidden="true" />
             <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
               <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
-                <!-- src="https://media.discordapp.net/attachments/600450283423662082/1064954386851315823/913943F2-2254-4FC8-87C6-0A1651031ED9_1_201_a.jpeg" -->
                 <img
                   class="object-cover object-center rounded-3xl shadow-2xl"
                   src="../assets/images/gray.webp"
@@ -280,7 +278,7 @@ const scrollToDemos = () => {
           </div>
 
           <div
-            class="relative bg-orange-500 lg:col-start-2 lg:row-start-1 lg:col-span-11 lg:rounded-3xl lg:grid lg:grid-cols-11 lg:items-center"
+            class="relative bg-orange-500 lg:col-start-2 lg:row-start-1 lg:col-end-12 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center"
           >
             <div
               class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block"
@@ -308,7 +306,7 @@ const scrollToDemos = () => {
                       y="0"
                       width="4"
                       height="4"
-                      class="text-orange-300"
+                      class="dark:text-orange-700 text-orange-300"
                       fill="currentColor"
                     />
                   </pattern>
@@ -323,30 +321,11 @@ const scrollToDemos = () => {
                 viewBox="0 0 404 384"
                 aria-hidden="true"
               >
-                <defs>
-                  <pattern
-                    id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
-                    x="0"
-                    y="0"
-                    width="20"
-                    height="20"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect
-                      x="0"
-                      y="0"
-                      width="4"
-                      height="4"
-                      class="text-orange-300"
-                      fill="currentColor"
-                    />
-                  </pattern>
-                </defs>
                 <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
               </svg>
             </div>
             <div
-              class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6 -top-10 lg:top-0"
+              class="relative max-w-md mx-auto py-12 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6 -top-10 lg:top-0"
             >
               <h2 class="text-3xl font-extrabold text-white" id="join-heading">
                 Ontmoet de stem van Hans
@@ -363,6 +342,22 @@ const scrollToDemos = () => {
                 @click="scrollToDemos"
                 >Luister demo's</a
               >
+            </div>
+          </div>
+
+          <div
+            class="relative z-10 lg:col-start-10 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent hidden lg:block lg:top-[12rem]"
+          >
+            <div class="absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:hidden" aria-hidden="true" />
+            <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
+              <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-">
+                <!-- src="https://media.discordapp.net/attachments/600450283423662082/1064954386851315823/913943F2-2254-4FC8-87C6-0A1651031ED9_1_201_a.jpeg" -->
+                <img
+                  class="object-cover object-center rounded-3xl shadow-2xl"
+                  src="../assets/images/willem.webp"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -584,14 +579,14 @@ const scrollToDemos = () => {
     <br />
 
     <div
-      class="mx-auto max-w-7xl py-12 px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
+      class="mx-auto max-w-7xl py-12 px-6 md:flex md:items-center md:justify-between md:py-16 md:px-8"
     >
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
         <span class="block">Gratis kennismakingsdemo?</span>
         <span class="block text-orange-500">Neem vrijblijvend contact op</span>
       </h2>
 
-      <div class="w-full lg:w-auto">
+      <div class="w-full md:w-auto mt-5 md:mt-0">
         <a
           href="mailto:hans@hbvoice.nl"
           class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 md:py-3 md:text-lg md:px-10"

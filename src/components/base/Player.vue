@@ -1,51 +1,49 @@
 <template>
-  <div id="audio-player-root">
-    <div id="player-row" class="inline-flex flex-wrap w-full max-w-5xl items-center">
-      <div id="button-div" class="flex-initial pl-3">
-        <svg
-          @click="toggleAudio()"
-          v-show="!isPlaying"
-          class="play-button text-orange-500"
-          :class="{
-            'hover:text-orange-600': audioLoaded,
-            'cursor-pointer': audioLoaded
-          }"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-            clip-rule="evenodd"
-          />
-        </svg>
-        <svg
-          @click="toggleAudio()"
-          v-show="isPlaying"
-          class="play-button text-orange-500 hover:text-orange-600 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </div>
-
-      <canvas :id="`canvas-${playerId}`" width="750" height="158" class="bg-whitedark:bg-slate-800">
-        Je browser ondersteund geen HTML5 <code>&lt;canvas&gt;</code>.
-      </canvas>
+  <div class="inline-flex flex-wrap w-full max-w-5xl items-center">
+    <div id="button-div" class="flex-initial pl-3">
+      <svg
+        @click="toggleAudio()"
+        v-show="!isPlaying"
+        class="text-orange-500 h-12"
+        :class="{
+          'hover:text-orange-600': audioLoaded,
+          'cursor-pointer': audioLoaded
+        }"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <svg
+        @click="toggleAudio()"
+        v-show="isPlaying"
+        class="h-12 text-orange-500 hover:text-orange-600 cursor-pointer"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
+          clip-rule="evenodd"
+        />
+      </svg>
     </div>
 
-    <div>
-      <audio style="display: none" ref="player" :id="playerId" crossorigin="anonymous" preload>
-        <source :src="src" type="audio/mpeg" />
-      </audio>
-    </div>
+    <canvas :id="`canvas-${playerId}`" width="590" height="158" class="bg-white dark:bg-slate-800">
+      Je browser ondersteund geen HTML5 <code>&lt;canvas&gt;</code>.
+    </canvas>
+  </div>
+
+  <div>
+    <audio ref="player" :id="playerId" class="hidden" crossorigin="anonymous" preload>
+      <source :src="src" type="audio/mpeg" />
+    </audio>
   </div>
 </template>
 
@@ -54,8 +52,8 @@ export default {
   props: ['src', 'playerId'],
   data() {
     return {
-      playbackTime: 0,
-      audioDuration: 100,
+      // playbackTime: 0,
+      // audioDuration: 100,
       audioLoaded: false,
       isPlaying: false,
       animationInitiated: false,
@@ -63,97 +61,54 @@ export default {
     };
   },
   methods: {
-    //Set the range slider max value equal to audio duration
     initSlider() {
-      var audio = this.$refs.player;
+      const audio = this.$refs.player;
       if (audio) {
         this.audioDuration = Math.round(audio.duration);
       }
     },
-    //Convert audio current time from seconds to min:sec display
-    convertTime(seconds) {
-      const format = (val) => `0${Math.floor(val)}`.slice(-2);
-      var hours = seconds / 3600;
-      var minutes = (seconds % 3600) / 60;
-      return [minutes, seconds % 60].map(format).join(':');
-    },
-    //Show the total duration of audio file
-    totalTime() {
-      var audio = this.$refs.player;
-      if (audio) {
-        var seconds = audio.duration;
-        return this.convertTime(seconds);
-      } else {
-        return '00:00';
-      }
-    },
-    //Display the audio time elapsed so far
-    elapsedTime() {
-      var audio = this.$refs.player;
-      if (audio) {
-        var seconds = audio.currentTime;
-        return this.convertTime(seconds);
-      } else {
-        return '00:00';
-      }
-    },
-    //Playback listener function runs every 100ms while audio is playing
     playbackListener(e) {
-      var audio = this.$refs.player;
-      //Sync local 'playbackTime' var to audio.currentTime and update global state
-      this.playbackTime = audio.currentTime;
-
-      //console.log("update: " + audio.currentTime);
-      //Add listeners for audio pause and audio end events
+      const audio = this.$refs.player;
       audio.addEventListener('ended', this.endListener);
       audio.addEventListener('pause', this.pauseListener);
     },
-    //Function to run when audio is paused by user
     pauseListener() {
       this.isPlaying = false;
       this.listenerActive = false;
       this.cleanupListeners();
     },
-    //Function to run when audio play reaches the end of file
     endListener() {
       this.isPlaying = false;
       this.listenerActive = false;
       this.cleanupListeners();
     },
-    //Remove listeners after audio play stops
     cleanupListeners() {
-      var audio = this.$refs.player;
+      const audio = this.$refs.player;
       audio.removeEventListener('timeupdate', this.playbackListener);
       audio.removeEventListener('ended', this.endListener);
       audio.removeEventListener('pause', this.pauseListener);
-      //console.log("All cleaned up!");
     },
     toggleAudio() {
-      var audio = this.$refs.player;
-      //var audio = document.getElementById("audio-player");
-      if (audio.paused) {
-        audio.play();
-        this.isPlaying = true;
-      } else {
-        audio.pause();
-        this.isPlaying = false;
-      }
+      const audio = this.$refs.player;
+      audio.paused ? audio.play() : audio.pause();
+
+      this.isPlaying = !audio.paused;
 
       if (!this.animationInitiated) {
         this.animate();
       }
     },
     loadAnimate() {
-      var c = document.getElementById(`canvas-${this.playerId}`);
-      var ctx = c.getContext('2d');
+      const c = document.getElementById(`canvas-${this.playerId}`);
+      const ctx = c.getContext('2d');
 
-      class graphicObject {
+      class GraphicObject {
         constructor(scenario) {
           scenario.push(this);
         }
       }
 
-      class Wave extends graphicObject {
+      class Wave extends GraphicObject {
         constructor(scenario) {
           super(scenario);
           this.x = 0;
@@ -185,8 +140,8 @@ export default {
           var rectWidth = 10;
           var rectHeight = height;
           var cornerRadius = 10;
-          ctx.strokeStyle = '#e87b35';
-          ctx.fillStyle = '#e87b35';
+          ctx.strokeStyle = this.color;
+          ctx.fillStyle = this.color;
           ctx.lineJoin = 'round';
           ctx.lineWidth = cornerRadius;
 
@@ -208,16 +163,12 @@ export default {
         }
       }
 
-      function loadScenario(ctx, scenario, root) {
+      const loadScenario = (ctx, scenario, root) => {
         return () => {
           if (root) {
             ctx.restore();
             ctx.beginPath();
-
             ctx.clearRect(0, 0, c.width, c.height);
-
-            // ctx.fillStyle = '#F9FAFB';
-            // ctx.fillRect(0, 0, c.width, c.height);
           }
           for (let i = 0; i < scenario.length; i++) {
             ctx.restore();
@@ -225,9 +176,9 @@ export default {
             scenario[i].draw(ctx);
           }
         };
-      }
+      };
 
-      const scenario_1 = (ctx) => {
+      const scenario1 = (ctx) => {
         const scenario = [];
 
         for (var i = 1; i < 30; i++) {
@@ -239,32 +190,29 @@ export default {
         return loadScenario(ctx, scenario, true);
       };
 
-      function loadFrames(scenario) {
+      const loadFrames = (scenario) => {
         const fn = () => {
           scenario();
           requestAnimationFrame(fn);
         };
         fn();
-      }
+      };
 
-      function start(ctx) {
-        loadFrames(scenario_1(ctx));
-      }
+      const start = (ctx) => {
+        loadFrames(scenario1(ctx));
+      };
 
       start(ctx);
-
-      //All about audio
     },
     animate() {
       this.animationInitiated = true;
 
-      var FFT_SIZE = 512;
-      var AudioContext = window.AudioContext || window.webkitAudioContext;
-      var audioCtx = new AudioContext();
+      const FFT_SIZE = 512;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const analyser = audioCtx.createAnalyser();
 
-      var analyser = audioCtx.createAnalyser();
-
-      var node = audioCtx.createScriptProcessor(FFT_SIZE * 2, 1, 1);
+      const node = audioCtx.createScriptProcessor(FFT_SIZE * 2, 1, 1);
       node.onaudioprocess = () => {
         self.spectrum = new Uint8Array(30);
         analyser.getByteFrequencyData(self.spectrum);
@@ -274,8 +222,8 @@ export default {
         }
       };
 
-      var audio = document.getElementById(this.$props.playerId);
-      var audioSrc = audioCtx.createMediaElementSource(audio);
+      const audio = document.getElementById(this.$props.playerId);
+      const audioSrc = audioCtx.createMediaElementSource(audio);
       audioSrc.connect(analyser);
       audioSrc.connect(audioCtx.destination);
       analyser.connect(node);
@@ -283,50 +231,31 @@ export default {
     }
   },
   mounted: function () {
-    var c = document.getElementById(`canvas-${this.playerId}`);
-    var ctx = c.getContext('2d');
+    const c = document.getElementById(`canvas-${this.playerId}`);
+    const ctx = c.getContext('2d');
     this.loadAnimate();
 
     this.$nextTick(function () {
-      var audio = this.$refs.player;
-      //Wait for audio to load, then run initSlider() to get audio duration and set the max value of our slider
-      // "loademetadata" Event https://www.w3schools.com/tags/av_event_loadedmetadata.asp
-      audio.addEventListener(
-        'loadedmetadata',
-        function (e) {
-          this.initSlider();
-        }.bind(this)
-      );
-      // "canplay" HTML Event lets us know audio is ready for play https://www.w3schools.com/tags/av_event_canplay.asp
-      audio.addEventListener(
-        'canplay',
-        function (e) {
-          this.audioLoaded = true;
-        }.bind(this)
-      );
-      //Wait for audio to begin play, then start playback listener function
+      const audio = this.$refs.player;
+      audio.addEventListener('canplay', (e) => (this.audioLoaded = true));
+
       this.$watch('isPlaying', function () {
         if (this.isPlaying) {
-          var audio = this.$refs.player;
+          const audio = this.$refs.player;
+
           this.initSlider();
-          //console.log("Audio playback started.");
-          //prevent starting multiple listeners at the same time
+
           if (!this.listenerActive) {
             this.listenerActive = true;
-            //for a more consistent timeupdate, include freqtimeupdate.js and replace both instances of 'timeupdate' with 'freqtimeupdate'
             audio.addEventListener('timeupdate', this.playbackListener);
           }
         }
       });
-      //Update current audio position when user drags progress slider
-      this.$watch('playbackTime', function () {
-        var audio = this.$refs.player;
-        var diff = Math.abs(this.playbackTime - this.$refs.player.currentTime);
 
-        //Throttle synchronization to prevent infinite loop between playback listener and this watcher
-        if (diff > 0.01) {
-          this.$refs.player.currentTime = this.playbackTime;
-        }
+      this.$watch('playbackTime', function () {
+        const audio = this.$refs.player;
+        const diff = Math.abs(this.playbackTime - this.$refs.player.currentTime);
+        if (diff > 0.01) this.$refs.player.currentTime = this.playbackTime;
       });
     });
   }
@@ -334,74 +263,7 @@ export default {
 </script>
 
 <style>
-/* Play/Pause Button */
 .play-button {
   height: 45px;
-}
-input[type='range'] {
-  margin: auto;
-  -webkit-appearance: none;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  cursor: pointer;
-  outline: none;
-  border-radius: 0; /* iOS */
-  background: transparent;
-}
-input[type='range']:focus {
-  outline: none;
-}
-::-webkit-slider-runnable-track {
-  background: #fff;
-}
-/*
-* 1. Set to 0 width and remove border for a slider without a thumb
-*/
-::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 0; /* 1 */
-  height: 40px;
-  background: #fff;
-  box-shadow: -100vw 0 0 100vw #e87b35;
-  border: none; /* 2px solid #999; */
-}
-::-moz-range-track {
-  height: 40px;
-  background: #ddd;
-}
-::-moz-range-thumb {
-  background: #fff;
-  height: 40px;
-  width: 0; /* 20px; */
-  border: none; /* 3px solid #999; */
-  border-radius: 0 !important;
-  box-shadow: -100vw 0 0 100vw #e87b35;
-  box-sizing: border-box;
-}
-::-ms-fill-lower {
-  background: #e87b35;
-}
-::-ms-thumb {
-  background: #fff;
-  border: 2px solid #999;
-  height: 40px;
-  width: 20px;
-  box-sizing: border-box;
-}
-::-ms-ticks-after {
-  display: none;
-}
-::-ms-ticks-before {
-  display: none;
-}
-::-ms-track {
-  background: #ddd;
-  color: transparent;
-  height: 40px;
-  border: none;
-}
-::-ms-tooltip {
-  display: none;
 }
 </style>
