@@ -43,7 +43,7 @@
 
     <div>
       <audio style="display: none" ref="player" :id="playerId" crossorigin="anonymous" preload>
-        <source :src="url" type="audio/mpeg" />
+        <source :src="src" type="audio/mpeg" />
       </audio>
     </div>
   </div>
@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  props: ['url', 'playerId'],
+  props: ['src', 'playerId'],
   data() {
     return {
       playbackTime: 0,
