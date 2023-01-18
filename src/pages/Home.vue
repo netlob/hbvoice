@@ -1,6 +1,6 @@
 <script setup>
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
-import { MenuIcon, XIcon, SpeakerphoneIcon } from '@heroicons/vue/outline';
+import { MenuIcon, XIcon, GiftIcon } from '@heroicons/vue/outline';
 import AudioPlayer from '../components/base/Player.vue';
 import { CheckIcon, MinusIcon } from '@heroicons/vue/solid';
 import VueWriter from 'vue-writer';
@@ -80,7 +80,7 @@ const scrollToDemos = () => {
         <div class="flex items-center justify-between flex-wrap">
           <div class="w-0 flex-1 flex items-center">
             <span class="flex p-2 rounded-lg bg-white dark:bg-slate-900">
-              <SpeakerphoneIcon class="h-6 w-6 text-orange-500" aria-hidden="true" />
+              <GiftIcon class="h-6 w-6 text-orange-500" aria-hidden="true" />
             </span>
             <p class="ml-3 font-medium text-orange-500 dark:text-white truncate">
               <span class="md:hidden">30% kennismakingskorting op de eerste opdracht</span>
