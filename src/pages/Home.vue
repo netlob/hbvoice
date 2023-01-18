@@ -561,7 +561,35 @@ const scrollToDemos = () => {
       </div>
     </div>
 
-    <footer class="bg-white dark:bg-slate-800 mt-20" aria-labelledby="footer-heading">
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div
+      class="mx-auto max-w-7xl py-12 px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
+    >
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        <span class="block">Gratis kennismakingsdemo?</span>
+        <span class="block text-orange-500">Neem vrijblijvend contact op</span>
+      </h2>
+
+      <div class="w-full lg:w-auto">
+        <a
+          href="mailto:hans@hbvoice.nl"
+          class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 md:py-3 md:text-lg md:px-10"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <footer class="bg-white dark:bg-slate-800" aria-labelledby="footer-heading">
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:py-5 lg:px-8">
         <div class="flex justify-center md:justify-between flex-wrap-reverse">
