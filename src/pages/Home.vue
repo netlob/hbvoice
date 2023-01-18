@@ -635,3 +635,15 @@ const scrollToDemos = () => {
     </footer>
   </div>
 </template>
+
+<style>
+::-moz-selection {
+  color: #fff;
+  background: #e87b35;
+}
+
+::selection {
+  color: #fff;
+  background: #e87b35;
+}
+</style>
