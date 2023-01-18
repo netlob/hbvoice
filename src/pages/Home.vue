@@ -75,14 +75,14 @@ const scrollToDemos = () => {
 
 <template>
   <div class="pb-[64px]">
-    <div class="bg-white fixed bottom-0 left-0 right-0 z-20 shadow-2xl">
+    <div class="bg-white fixed bottom-0 left-0 right-0 z-20 shadow-2xl dark:bg-slate-800">
       <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between flex-wrap">
           <div class="w-0 flex-1 flex items-center">
-            <span class="flex p-2 rounded-lg bg-white">
+            <span class="flex p-2 rounded-lg bg-white dark:bg-slate-900">
               <SpeakerphoneIcon class="h-6 w-6 text-orange-500" aria-hidden="true" />
             </span>
-            <p class="ml-3 font-medium text-orange-500 truncate">
+            <p class="ml-3 font-medium text-orange-500 dark:text-white truncate">
               <span class="md:hidden">30% kennismakingskorting op de eerste opdracht</span>
               <span class="hidden md:inline">
                 Maak tot 1 juni 2023 gebruik van 30% kennismakingskorting op de eerste opdracht
@@ -110,13 +110,13 @@ const scrollToDemos = () => {
       </div>
     </div>
 
-    <header class="relative overflow-hidden bg-white">
+    <header class="relative overflow-hidden bg-white dark:bg-slate-800">
       <div class="max-w-7xl mx-auto">
         <div
-          class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
+          class="relative z-10 pb-8 bg-white dark:bg-slate-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
         >
           <svg
-            class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+            class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-slate-800 transform translate-x-1/2"
             fill="currentColor"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
@@ -147,7 +147,7 @@ const scrollToDemos = () => {
           >
             <div class="sm:text-center lg:text-left">
               <h1
-                class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+                class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
               >
                 <span class="block">Uw professionele</span>
                 {{ ' ' }}
@@ -160,7 +160,7 @@ const scrollToDemos = () => {
                 />
               </h1>
               <p
-                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-gray-300"
               >
                 Bedrijfsvideo, commercial, documentaire of animatie: u vraagt, ik spreek.
               </p>
@@ -176,7 +176,7 @@ const scrollToDemos = () => {
                 <div class="mt-0 ml-3 lg:pr-10">
                   <a
                     @click="scrollToDemos"
-                    class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-xl text-orange-700 bg-orange-100 hover:bg-orange-200 md:py-3 md:text-lg md:px-10 cursor-pointer"
+                    class="w-full flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-xl text-orange-700 bg-orange-100 hover:bg-orange-200 md:py-3 md:text-lg md:px-10 cursor-pointer dark:bg-opacity-10 dark:hover:bg-opacity-20 dark:text-white"
                   >
                     Demo's
                   </a>
@@ -209,30 +209,33 @@ const scrollToDemos = () => {
     <br class="hidden lg:block" />
     <br />
 
-    <section class="max-w-7xl mx-auto px-6 py-7 lg:px-8" id="demos">
-      <h1 class="text-5xl mb-5 text-center font-bold text-gray-900">Demo's</h1>
+    <section class="max-w-7xl mx-auto px-6 py-7 lg:px-8 select-none" id="demos">
+      <h1 class="text-5xl mb-5 text-center font-bold text-gray-900 dark:text-white">Demo's</h1>
 
       <div class="md:grid grid-cols-12 gap-4">
-        <div class="bg-white col-span-6 py-4 rounded-xl mb-4 md:mb-0">
+        <div class="bg-white dark:bg-slate-800 col-span-6 py-4 rounded-xl mb-4 md:mb-0">
           <AudioPlayer
             class="overflow-hidden"
             url="../../assets/demo/Voice-Demo-2022-Commercials-Narratief.mp3"
             playerId="demo1"
           />
-          <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600">Commercials 2022</h2>
+          <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600 dark:text-white">
+            Commercials 2022
+          </h2>
         </div>
-        <div class="bg-white col-span-6 py-4 rounded-xl">
+        <div class="bg-white dark:bg-slate-800 col-span-6 py-4 rounded-xl">
           <AudioPlayer
             class="overflow-hidden"
             url="../../assets/demo/Voice-Demo-2021-Commercials-Narratief.mp3"
             playerId="demo2"
           />
-          <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600">Commercials 2021</h2>
+          <h2 class="text-3xl mt-1 ml-5 text-left font-bold text-gray-600 dark:text-white">
+            Commercials 2021
+          </h2>
         </div>
       </div>
     </section>
 
-    <br />
     <br />
     <br />
     <br />
@@ -357,19 +360,23 @@ const scrollToDemos = () => {
 
     <!-- Pricing -->
     <!-- <div class="max-w-7xl mx-auto py-16 sm:py-24 sm:px-6 lg:px-8"> -->
-    <h1 class="text-5xl mb-5 text-center font-bold text-gray-900">Tarieven 2023</h1>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-10 bg-white rounded-2xl">
+    <h1 class="text-5xl mb-5 text-center font-bold text-gray-900 dark:text-white">Tarieven 2023</h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-10 bg-white dark:bg-slate-800 rounded-2xl">
       <!-- xs to lg -->
       <div class="max-w-2xl mx-auto space-y-16 lg:hidden">
         <section v-for="(tier, tierIdx) in tiers" :key="tier.name">
           <div class="px-4 mb-8">
-            <h2 class="text-lg leading-6 font-medium text-gray-900">{{ tier.name }}</h2>
+            <h2 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
+              {{ tier.name }}
+            </h2>
             <p class="mt-4">
-              <span class="text-4xl font-extrabold text-gray-900">€{{ tier.price }}</span>
+              <span class="text-4xl font-extrabold text-gray-900 dark:text-white"
+                >€{{ tier.price }}</span
+              >
               {{ ' ' }}
-              <span class="text-base font-medium text-gray-500">ex btw</span>
+              <span class="text-base font-medium text-gray-500 dark:text-gray-100">ex btw</span>
             </p>
-            <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
+            <p class="mt-4 text-sm text-gray-500 dark:text-gray-100">{{ tier.description }}</p>
             <!-- <a
               :href="tier.href"
               class="mt-6 block border border-gray-800 rounded-md bg-gray-800 w-full py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
@@ -379,7 +386,7 @@ const scrollToDemos = () => {
 
           <table v-for="section in sections" :key="section.name" class="w-full">
             <caption
-              class="bg-gray-50 border-t border-gray-200 py-3 px-4 text-sm font-medium text-gray-900 text-left"
+              class="bg-gray-50 border-t border-gray-200 py-3 px-4 text-sm font-medium text-gray-900 text-left dark:bg-slate-700 dark:border-slate-900 dark:text-white"
             >
               {{
                 section.name
@@ -391,19 +398,22 @@ const scrollToDemos = () => {
                 <th class="sr-only" scope="col">Included</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-gray-200 dark:divide-slate-900">
               <tr
                 v-for="feature in section.features"
                 :key="feature.name"
-                class="border-t border-gray-200"
+                class="border-t border-gray-200 dark:border-slate-900"
               >
-                <th class="py-5 px-4 text-sm font-normal text-gray-500 text-left" scope="row">
+                <th
+                  class="py-5 px-4 text-sm font-normal text-gray-500 text-left dark:text-gray-100"
+                  scope="row"
+                >
                   {{ feature.name }}
                 </th>
                 <td class="py-5 pr-4">
                   <span
                     v-if="typeof feature.tiers[tier.name] === 'string'"
-                    class="block text-sm text-gray-700 text-right"
+                    class="block text-sm text-gray-700 text-right dark:text-white"
                     >{{ feature.tiers[tier.name] }}</span
                   >
                   <template v-else>
@@ -452,17 +462,19 @@ const scrollToDemos = () => {
               <th
                 v-for="tier in tiers"
                 :key="tier.name"
-                class="w-1/5 pb-4 px-6 text-lg leading-6 font-medium text-gray-900 text-left"
+                class="w-1/5 pb-4 px-6 text-lg leading-6 font-medium text-gray-900 dark:text-white text-left"
                 scope="col"
               >
                 {{ tier.name }}
               </th>
             </tr>
           </thead>
-          <tbody class="border-t border-gray-200 divide-y divide-gray-200">
+          <tbody
+            class="border-t border-gray-200 divide-y divide-gray-200 dark:border-slate-900 dark:divide-slate-900"
+          >
             <tr>
               <th
-                class="py-8 px-6 text-sm font-medium text-gray-900 text-left align-top"
+                class="py-8 px-6 text-sm font-medium text-gray-900 dark:text-white text-left align-top"
                 scope="row"
               >
                 Prijs vanaf
@@ -470,11 +482,17 @@ const scrollToDemos = () => {
               <td v-for="tier in tiers" :key="tier.name" class="h-full py-8 px-6 align-top">
                 <div class="relative h-full table">
                   <p>
-                    <span class="text-4xl font-extrabold text-gray-900">€{{ tier.price }}</span>
+                    <span class="text-4xl font-extrabold text-gray-900 dark:text-white"
+                      >€{{ tier.price }}</span
+                    >
                     {{ ' ' }}
-                    <span class="text-base font-medium text-gray-500">ex btw</span>
+                    <span class="text-base font-medium text-gray-500 dark:text-gray-100"
+                      >ex btw</span
+                    >
                   </p>
-                  <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
+                  <p class="mt-4 text-sm text-gray-500 dark:text-gray-100">
+                    {{ tier.description }}
+                  </p>
                   <!-- <p class="mt-4 mb-16 text-sm text-gray-500">{{ tier.description }}</p>
                   <a
                     :href="tier.href"
@@ -495,13 +513,16 @@ const scrollToDemos = () => {
                 </th>
               </tr> -->
               <tr v-for="feature in section.features" :key="feature.name">
-                <th class="py-5 px-6 text-sm font-normal text-gray-500 text-left" scope="row">
+                <th
+                  class="py-5 px-6 text-sm font-normal text-gray-500 dark:text-gray-100 text-left"
+                  scope="row"
+                >
                   {{ feature.name }}
                 </th>
                 <td v-for="tier in tiers" :key="tier.name" class="py-5 px-6">
                   <span
                     v-if="typeof feature.tiers[tier.name] === 'string'"
-                    class="block text-sm text-gray-700"
+                    class="block text-sm text-gray-700 dark:text-white"
                     >{{ feature.tiers[tier.name] }}</span
                   >
                   <template v-else>
@@ -510,7 +531,11 @@ const scrollToDemos = () => {
                       class="h-5 w-5 text-green-500"
                       aria-hidden="true"
                     />
-                    <MinusIcon v-else class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <MinusIcon
+                      v-else
+                      class="h-5 w-5 text-gray-400 dark:text-gray-100"
+                      aria-hidden="true"
+                    />
                     <span class="sr-only"
                       >{{ feature.tiers[tier.name] === true ? 'Included' : 'Not included' }} in
                       {{ tier.name }}</span
@@ -521,7 +546,7 @@ const scrollToDemos = () => {
             </template>
           </tbody>
           <tfoot>
-            <tr class="border-t border-gray-200">
+            <tr class="border-t border-gray-200 dark:border-slate-900">
               <th class="sr-only" scope="row">Choose your plan</th>
               <td v-for="tier in tiers" :key="tier.name" class="pt-5 px-6">
                 <a
@@ -536,7 +561,7 @@ const scrollToDemos = () => {
       </div>
     </div>
 
-    <footer class="bg-white mt-20" aria-labelledby="footer-heading">
+    <footer class="bg-white dark:bg-slate-800 mt-20" aria-labelledby="footer-heading">
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:py-5 lg:px-8">
         <div class="flex justify-center md:justify-between flex-wrap-reverse">
@@ -544,7 +569,7 @@ const scrollToDemos = () => {
             <div>
               <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">contact</h3>
               <ul role="list" class="mt-4 space-y-1">
-                <li class="text-base text-gray-500">Hans Bolten</li>
+                <li class="text-base text-gray-500 dark:text-gray-100">Hans Bolten</li>
                 <li>
                   <a
                     href="mailto:hans@hbvoice.nl"
@@ -561,8 +586,8 @@ const scrollToDemos = () => {
                     06 8383 1006
                   </a>
                 </li>
-                <li class="text-base text-gray-500">KVK: xxxxxxxx</li>
-                <li class="text-base text-gray-500">IBAN: NL57ASNB0778032868</li>
+                <li class="text-base text-gray-500 dark:text-gray-100">KVK: xxxxxxxx</li>
+                <li class="text-base text-gray-500 dark:text-gray-100">IBAN: NL57ASNB0778032868</li>
               </ul>
             </div>
           </div>

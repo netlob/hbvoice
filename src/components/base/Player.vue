@@ -36,7 +36,7 @@
         </svg>
       </div>
 
-      <canvas :id="`canvas-${playerId}`" width="750" height="158" style="background: white">
+      <canvas :id="`canvas-${playerId}`" width="750" height="158" class="bg-whitedark:bg-slate-800">
         Je browser ondersteund geen HTML5 <code>&lt;canvas&gt;</code>.
       </canvas>
     </div>
